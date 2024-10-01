@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="dist/bundle.js"></script>
+  </head>
+  <link rel="stylesheet" href="libs/bootstrap.min.css" />
+  <link rel="stylesheet" href="index.css" />
+  <body>
+    <div class="container">
+      <div class="header text-center">
+        <p class="text-capitalize fs-3 fw-bold">
+          Система управління бібліотекою
+        </p>
+      </div>
+
+      <form class="shadow p-3 mb-5 bg-body-tertiary rounded" id="book-form">
+        <p class="text-capitalize fs-4 fw-bold">додати книгу</p>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Назва книги"
+            data-validation="required"
+            id="title"
+          />
+          <small class="error-message text-danger" id="title-error"></small>
+        </div>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Автор"
+            data-validation="required"
+            id="author"
+          />
+          <small class="error-message text-danger" id="author-error"></small>
+        </div>
+        <div class="mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Рік видання"
+            data-validation="year"
+            id="year"
+          />
+          <small class="error-message text-danger" id="year-error"></small>
+        </div>
+        <button type="submit" class="btn btn-success text-capitalize">
+          Додати книгу
+        </button>
+      </form>
+
+      <form class="shadow p-3 mb-5 bg-body-tertiary rounded" id="user-form">
+        <p class="text-capitalize fs-4 fw-bold">додати користувача</p>
+        <div class="mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ім'я"
+            data-validation="required"
+            id="name"
+          />
+          <small class="error-message text-danger" id="name-error"></small>
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            data-validation="required"
+            id="email"
+          />
+          <small class="error-message text-danger" id="email-error"></small>
+        </div>
+        <button type="submit" class="btn btn-success text-capitalize">
+          Додати користувача
+        </button>
+      </form>
+
+      <form class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <p class="text-capitalize fs-4 fw-bold">список книг</p>
+        <ul id="book-list-items" class="list-group"></ul>
+      </form>
+
+      <form class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <p class="text-capitalize fs-4 fw-bold">список користувачів</p>
+        <ul id="user-list-items" class="list-group"></ul>
+      </form>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Введіть ID користувача для позичення книги
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="id-form">
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">ID:</label>
+                <input
+                  class="form-control"
+                  id="user-id"
+                  data-validation="number"
+                />/>
+                <small
+                  class="error-message text-danger"
+                  id="user-id-error"
+                ></small>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Скасувати
+            </button>
+            <button
+              type="button"
+              id="saveButton"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              Зберегти
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalToggle2"
+      aria-hidden="true"
+      aria-labelledby="exampleModalToggleLabel2"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="modalBodyContent" class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              ОК
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="libs/bootstrap.bundle.min.js"></script>
+</html>
